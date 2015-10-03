@@ -26,12 +26,30 @@ TARGET_LIBINIT_DEFINES_FILE := $(DEVICE_PATH)/init/init_titan.c
 # Assert
 TARGET_OTA_ASSERT_DEVICE := titan,titan_umts,titan_udstv,titan_umtsds,titan_retaildsds,XT1068,XT1064,XT1063,XT1069
 
+# TWRP
+DEVICE_RESOLUTION := 1280x720
+TW_THEME := portrait_hdpi
+
 # Board
 TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 
 # Kernel
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
 TARGET_KERNEL_CONFIG := titan_defconfig
+
+# Fusion Optimizations
+FUSION_OPT := true
+FUSION_O3 := true
+FUSION_STRICT := false
+FUSION_OFAST := true
+FUSION_KRAIT := false
+FUSION_GRAPHITE := true
+FUSION_PIPE := false
+FUSION_ENABLE_GCCONLY := true
+FLOOP_NEST_OPTIMIZE := true
+FUSION_FFAST_MATH := true
+TARGET_FUSION_ROM := 4.9
+TARGET_FUSION_KERNEL := 4.9-sm
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10444800
@@ -47,3 +65,6 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
 # inherit from the proprietary version
 -include vendor/motorola/titan/BoardConfigVendor.mk
+
+# SaberMod
+-include vendor/fusion/config/sm.mk
